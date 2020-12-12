@@ -4,7 +4,11 @@ import { Container, Row, Col, Button } from 'react-bootstrap';
 class RelatedArticles extends React.Component {
   constructor(props) {
     super(props);
+
+    this.handleShowMore = this.handleShowMore.bind(this);
+
     this.state = {
+      show: 3,
       cards: [
         {
           id: 1,
@@ -62,8 +66,19 @@ class RelatedArticles extends React.Component {
     console.log('did mount?');
   }
 
+  handleShowMore() {
+    const stateData = this.state;
+
+    console.log('clicked', stateData, this.state);
+
+    this.setState(prevState => {
+      return({ show: stateData.show >= stateData.cards.length ? stateData.show : stateData.show + 100 });
+    });
+  }
+
   render() {
     const data = this.state;
+    const items = data.cards.slice(0, data.show);
 
     return (
       <section className="related-articles">
@@ -81,7 +96,7 @@ class RelatedArticles extends React.Component {
           </Row>
 
           <Row>
-            {data.cards.map(card => (
+            {items.map(card => (
               <Col xs={12} sm={6} md={4} key={card.id}>
                 <div className={`card ${card.panelColor}`}>
                   <span className="date">{card.date}</span>
@@ -99,9 +114,9 @@ class RelatedArticles extends React.Component {
         <Container>
           <Row>
             <Col>
-              <div className="load-more-container">
-                <Button variant="outline-dark load-more-btn" size="md">
-                  Read More
+              <div className={`load-more-container ${items.length < 4 ? "" : "d-none"}`}>
+                <Button variant="outline-dark load-more-btn" size="md" onClick={this.handleShowMore}>
+                  Show More
                 </Button>
               </div>
             </Col>

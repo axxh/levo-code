@@ -13,7 +13,7 @@ class GlobalHeader extends React.Component {
         <Container>
           <Row>
             <Col>
-              <p>Example header..</p>
+              <h1>Header..</h1>
             </Col>
           </Row>
         </Container>
