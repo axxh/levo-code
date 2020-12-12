@@ -3,6 +3,7 @@ $panel2: #4aadde;
 $panel3: #ab75ad;
 $bg: #f8f8f8;
 $headerText: #ed7586;
+$cardText: #ffffff;
 
 section.related-articles {
   position: relative;
@@ -18,5 +19,98 @@ section.related-articles {
   p {
     font-size: 16px;
     max-width: 660px;
+    margin-bottom: 40px;
+  }
+
+  .card {
+    position: relative;
+    margin-bottom: 30px;
+    padding: 15px;
+    color: $cardText;
+    border-radius: 0;
+    min-height: 250px;
+    height: 250px;
+    padding-bottom: 50px;
+
+    &.panel1 {
+      background-color: $panel1;
+    }
+
+    &.panel2 {
+      background-color: $panel2;
+    }
+
+    &.panel3 {
+      background-color: $panel3;
+    }
+
+    span.date {
+      font-size: 11px;
+      font-weight: 800;
+    }
+
+    h5 {
+      font-size: 18px;
+      margin: 10px 0;
+    }
+
+    p {
+      font-size: 12px;
+      margin-bottom: 20px;
+    }
+
+    .read-more-btn {
+      display: inline-block;
+      width: 110px;
+      max-width: 110px;
+      text-transform: uppercase;
+      font-weight: 600;
+      color: #fff;
+      border-color: #fff;
+      position: absolute;
+      bottom: 15px;
+      left: 15px;
+      box-shadow: none !important;
+
+      &:active,
+      &:hover {
+        background-color: #fff;
+        color: #333;
+      }
+    }
+  }
+
+  @media screen and (max-width: 850px) {
+    p {
+      max-width: 100%;
+    }
+  }
+
+  @media screen and (max-width: 560px) {
+    .card {
+      min-height: auto;
+      height: auto;
+    }
+  }
+
+  .load-more-container {
+    text-align: center;
+
+    .load-more-btn {
+      display: inline-block;
+      text-transform: uppercase;
+      font-weight: 600;
+      color: #ed7586;
+      border-color: #ed7586;
+      font-size: 16px;
+      margin-top: 20px;
+      box-shadow: none !important;
+
+      &:active,
+      &:hover {
+        background-color: #ed7586;
+        color: #fff;
+      }
+    }
   }
 }
