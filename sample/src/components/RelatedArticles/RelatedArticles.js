@@ -4,7 +4,58 @@ import { Container, Row, Col, Button } from 'react-bootstrap';
 class RelatedArticles extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = {
+      cards: [
+        {
+          id: 1,
+          date: '12 Sept 2018',
+          title: 'Testing header Text',
+          content: 'Chocolate cake toffee lollipop wafer chupa chups. Topping cookie oat cake bonbon tiramisu ice cream liquorice. Jelly-o dragée halvah bonbon cake.',
+          url: 'https://www.google.com',
+          panelColor: 'panel1'
+        },
+        {
+          id: 2,
+          date: '12 Sept 2018',
+          title: 'Testing header Text',
+          content: 'Chocolate cake toffee lollipop wafer chupa chups. Topping cookie oat cake bonbon tiramisu ice cream liquorice. Jelly-o dragée halvah bonbon cake.',
+          url: 'https://www.google.com',
+          panelColor: 'panel2'
+        },
+        {
+          id: 3,
+          date: '12 Sept 2018',
+          title: 'Testing header Text',
+          content: 'Chocolate cake toffee lollipop wafer chupa chups. Topping cookie oat cake bonbon tiramisu ice cream liquorice. Jelly-o dragée halvah bonbon cake.',
+          url: 'https://www.google.com',
+          panelColor: 'panel3'
+        },
+        {
+          id: 4,
+          date: '12 Sept 2018',
+          title: 'Testing header Text',
+          content: 'Chocolate cake toffee lollipop wafer chupa chups. Topping cookie oat cake bonbon tiramisu ice cream liquorice. Jelly-o dragée halvah bonbon cake.',
+          url: 'https://www.google.com',
+          panelColor: 'panel2'
+        },
+        {
+          id: 5,
+          date: '12 Sept 2018',
+          title: 'Testing header Text',
+          content: 'Chocolate cake toffee lollipop wafer chupa chups. Topping cookie oat cake bonbon tiramisu ice cream liquorice. Jelly-o dragée halvah bonbon cake.',
+          url: 'https://www.google.com',
+          panelColor: 'panel3'
+        },
+        {
+          id: 6,
+          date: '12 Sept 2018',
+          title: 'Testing header Text',
+          content: 'Chocolate cake toffee lollipop wafer chupa chups. Topping cookie oat cake bonbon tiramisu ice cream liquorice. Jelly-o dragée halvah bonbon cake.',
+          url: 'https://www.google.com',
+          panelColor: 'panel1'
+        }
+      ]
+    };
   }
 
   componentDidMount() {
@@ -12,6 +63,8 @@ class RelatedArticles extends React.Component {
   }
 
   render() {
+    const data = this.state;
+
     return (
       <section className="related-articles">
         <Container>
@@ -28,48 +81,18 @@ class RelatedArticles extends React.Component {
           </Row>
 
           <Row>
-            <Col xs={12} sm={6} md={4}>
-              <div className="card panel1">
-                <span className="date">12 Sept 2018</span>
-                <h5>Testing header Text</h5>
-                <p>
-                  Chocolate cake toffee lollipop wafer chupa chups. Topping
-                  cookie oat cake bonbon tiramisu ice cream liquorice. Jelly-o
-                  dragée halvah bonbon cake.
-                </p>
-                <Button variant="outline-dark read-more-btn" size="sm">
-                  Read More
-                </Button>
-              </div>
-            </Col>
-            <Col xs={12} sm={6} md={4}>
-              <div className="card panel2">
-                <span className="date">12 Sept 2018</span>
-                <h5>Testing header Text</h5>
-                <p>
-                  Chocolate cake toffee lollipop wafer chupa chups. Topping
-                  cookie oat cake bonbon tiramisu ice cream liquorice. Jelly-o
-                  dragée halvah bonbon cake.
-                </p>
-                <Button variant="outline-dark read-more-btn" size="sm">
-                  Read More
-                </Button>
-              </div>
-            </Col>
-            <Col xs={12} sm={6} md={4}>
-              <div className="card panel3">
-                <span className="date">12 Sept 2018</span>
-                <h5>Testing header Text</h5>
-                <p>
-                  Chocolate cake toffee lollipop wafer chupa chups. Topping
-                  cookie oat cake bonbon tiramisu ice cream liquorice. Jelly-o
-                  dragée halvah bonbon cake.
-                </p>
-                <Button variant="outline-dark read-more-btn" size="sm">
-                  Read More
-                </Button>
-              </div>
-            </Col>
+            {data.cards.map(card => (
+              <Col xs={12} sm={6} md={4} key={card.id}>
+                <div className={`card ${card.panelColor}`}>
+                  <span className="date">{card.date}</span>
+                  <h5>{card.title}</h5>
+                  <p>{card.content}</p>
+                  <Button href={card.url} variant="outline-dark read-more-btn" size="sm">
+                    Read More
+                  </Button>
+                </div>
+              </Col>
+            ))}
           </Row>
         </Container>
 
