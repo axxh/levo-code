@@ -1,0 +1,17 @@
+{
+  "extends": "stylelint-config-standard",
+  "defaultSeverity": "warning",
+  "plugins": [
+    "stylelint-scss"
+  ],
+  "rules": {
+    "scss/at-extend-no-missing-placeholder": true,
+    "color-no-invalid-hex": true,
+    "selector-pseudo-class-no-unknown": [
+      true,
+      {
+        "ignorePseudoClasses": ["global"]
+      }
+    ]
+  }
+}

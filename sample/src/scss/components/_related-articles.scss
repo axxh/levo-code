@@ -1,0 +1,22 @@
+$panel1: #f59826;
+$panel2: #4aadde;
+$panel3: #ab75ad;
+$bg: #f8f8f8;
+$headerText: #ed7586;
+
+section.related-articles {
+  position: relative;
+  background-color: $bg;
+  padding-top: 30px;
+  padding-bottom: 30px;
+
+  h3 {
+    color: $headerText;
+    margin-bottom: 20px;
+  }
+
+  p {
+    font-size: 16px;
+    max-width: 660px;
+  }
+}
